@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace LikeButtonFeature.Models
 {
+    /// <summary>
+    /// Base Entity Model
+    /// </summary>
+    /// <typeparam name="PK">Primary Key type for the entity in question</typeparam>
     public class BaseEntity<PK>
     {
         [Key]

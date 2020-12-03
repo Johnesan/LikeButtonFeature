@@ -19,10 +19,13 @@ namespace LikeButtonFeature.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            // Enforce Unique Index constraint to prevent same user from liking 
+            // an article more than once.
             builder.Entity<Like>()
             .HasIndex(x => new { x.ArticleId, x.UserId })
             .IsUnique();
 
+            // Add index to Articles table to ramp up fetch speed.
             builder.Entity<Article>().HasIndex(x => x.Id);
 
             //Seed data...

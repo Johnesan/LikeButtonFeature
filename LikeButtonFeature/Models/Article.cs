@@ -12,7 +12,7 @@ namespace LikeButtonFeature.Models
         public string Message { get; set; }
         public long LikeCount { get; set; }
         [Timestamp]
-        public byte[] RowVersion { get; set; }
+        public byte[] RowVersion { get; set; } //To handle concurrency conflicts
 
         /*
          * 

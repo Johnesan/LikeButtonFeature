@@ -68,8 +68,6 @@ namespace LikeButtonFeature
             {
                 endpoints.MapControllers();
             });
-
-            //app.UseRewriter(new RewriteOptions().AddRedirect("^$", "swagger"));
         }
     }
 }
