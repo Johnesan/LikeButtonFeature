@@ -18,6 +18,7 @@ namespace LikeButtonFeature.Controllers
             _articleService = articleService;
         }
 
+        //Sample: {baseUrl}/Articles/Get/1
         [HttpGet("Get/{Id}")]
         public async Task<IActionResult> Get(int Id)
         {

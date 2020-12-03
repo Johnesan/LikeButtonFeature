@@ -24,6 +24,8 @@ namespace LikeButtonFeature.Controllers
             _userService = userService;
         }
 
+        //Sample Request: Url - {baseUrl}/Like/New)
+        // Request Body - { "articleId" : 1, "userId" : 1 }
         [HttpPost("New")]
         public async Task<IActionResult> New([FromBody] LikeRequestDTO request)
         {
