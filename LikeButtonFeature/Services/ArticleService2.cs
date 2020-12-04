@@ -24,12 +24,6 @@ namespace LikeButtonFeature.Services
             _likeService = likeService;
         }
 
-        public async Task<ArticleDTO> GetArticle(int Id)
-        {
-            var article = await _repo.Get(Id);
-            return _mapper.Map<ArticleDTO>(article);
-        }
-
         /// <summary>
         /// This approach fetches the like count directly from the Likes table.
         /// It leverages the index on the ArticleId column on Likes table to query 
@@ -40,13 +34,22 @@ namespace LikeButtonFeature.Services
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        public async Task<long> GetLikeCount(int Id)
+        public async Task<ArticleDTO> GetArticle(int Id)
         {
-            var article = await _repo.Get(Id);
+            var articles = await _repo.Get(x => x.Id == Id, null, "Likes");
+            var article = articles?.SingleOrDefault();
             if (article == null)
                 throw new ApplicationException("Invalid article Id");
 
-            return await _likeService.GetCountLikeForArticle(Id);
+            var articleToReturn = _mapper.Map<ArticleDTO>(article);
+            articleToReturn.LikeCount = article.Likes.Count();
+            return articleToReturn;
+        }
+
+       
+        public async Task<long> GetLikeCount(int Id)
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>

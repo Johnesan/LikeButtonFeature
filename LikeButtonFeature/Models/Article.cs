@@ -17,7 +17,8 @@ namespace LikeButtonFeature.Models
         /// return this value. Although arguably a bad schema design choice,
         /// it could potentially be a good trade off in perculiar situations.
         /// </summary>
-        public long LikeCount { get; set; } 
+        public long LikeCount { get; set; }
+        public IEnumerable<Like> Likes { get; set; }
         [Timestamp]
         public byte[] RowVersion { get; set; } //To handle concurrency conflicts
 
