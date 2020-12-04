@@ -10,7 +10,13 @@ namespace LikeButtonFeature.Models
     {
         public string Title { get; set; }
         public string Message { get; set; }
-        public long LikeCount { get; set; }
+        /// <summary>
+        /// This property makes fetching like count easier especially 
+        /// when there are like a million requests to get this value.
+        /// Instead of aggreating count from Likes table, we simply 
+        /// return this value.
+        /// </summary>
+        public long LikeCount { get; set; } 
         [Timestamp]
         public byte[] RowVersion { get; set; } //To handle concurrency conflicts
 
