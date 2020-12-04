@@ -34,5 +34,11 @@ namespace LikeButtonFeature.Services
         {
             LikeAdded?.Invoke(this, new LikeEventArgs { ArticleId = ArticleId });
         }
+
+        public async Task<long> GetCountLikeForArticle(int articleId)
+        {
+            var likes = await _repo.Get(x => x.ArticleId == articleId);
+            return likes.Count();
+        }
     }
 }
