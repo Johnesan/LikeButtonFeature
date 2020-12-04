@@ -28,8 +28,6 @@ namespace LikeButtonFeature.Data
             // Add index to Articles table to ramp up fetch speed.
             builder.Entity<Article>().HasIndex(x => x.Id);
 
-            // Add index for ArticleId to ramp up like count speed for an article.
-            builder.Entity<Like>().HasIndex(x => x.ArticleId);
             //Seed data...
             builder.Entity<Article>().HasData(
                 new Article

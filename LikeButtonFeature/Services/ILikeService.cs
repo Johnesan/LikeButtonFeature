@@ -23,11 +23,5 @@ namespace LikeButtonFeature.Services
         /// </summary>
         /// <param name="ArticleId"></param>
         void OnLikeAdded(int ArticleId);
-        /// <summary>
-        /// Get the like count for a specified article Id
-        /// </summary>
-        /// <param name="articleId"></param>
-        /// <returns></returns>
-        public Task<long> GetCountLikeForArticle(int articleId);
     }
 }

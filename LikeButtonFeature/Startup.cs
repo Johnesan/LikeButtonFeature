@@ -40,7 +40,7 @@ namespace LikeButtonFeature
             services.AddScoped<IArticleRepository, ArticleRepository>();
             services.AddScoped<ILikeRepository, LikeRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IArticleService, ArticleService2>();
+            services.AddScoped<IArticleService, ArticleService>();
             services.AddScoped<ILikeService, LikeService>();
             services.AddScoped<IUserService, UserService>();
 
