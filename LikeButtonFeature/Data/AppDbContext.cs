@@ -28,6 +28,9 @@ namespace LikeButtonFeature.Data
             // Add index to Articles table to ramp up fetch speed.
             builder.Entity<Article>().HasIndex(x => x.Id);
 
+            // Add index to ArticleId table to ramp up count speed.
+            builder.Entity<Like>().HasIndex(x => x.ArticleId);
+
             //Seed data...
             builder.Entity<Article>().HasData(
                 new Article
@@ -36,7 +39,6 @@ namespace LikeButtonFeature.Data
                     Title = "Article One",
                     Message = "Message One",
                     DateCreated = DateTime.Now,
-                    LikeCount = 0
                 },
                 new Article
                 {
@@ -44,7 +46,6 @@ namespace LikeButtonFeature.Data
                     Title = "Article Two",
                     Message = "Message Two",
                     DateCreated = DateTime.Now,
-                    LikeCount = 0
                 },
                 new Article
                 { 
@@ -52,7 +53,6 @@ namespace LikeButtonFeature.Data
                     Title = "Article Three",
                     Message = "Message Three",
                     DateCreated = DateTime.Now,
-                    LikeCount = 0
                 },
                 new Article
                 {
@@ -60,7 +60,6 @@ namespace LikeButtonFeature.Data
                     Title = "Article Four",
                     Message = "Message Four",
                     DateCreated = DateTime.Now,
-                    LikeCount = 0
                 });
 
             builder.Entity<User>().HasData(

@@ -14,26 +14,5 @@ namespace LikeButtonFeature.Data.Repositories
         {
             _context = context;
         }
-
-        public void IncrementLikeCount(Article article)
-        {
-            bool updateFailed;
-            do
-            {
-                updateFailed = false;
-
-                try
-                {
-                    article.LikeCount++;
-                    _context.SaveChanges();
-                }
-                catch (DbUpdateConcurrencyException ex)
-                {
-                    updateFailed = true;
-                    ex.Entries.Single().Reload();
-                }
-
-            } while (updateFailed);
-        }
     }
 }
