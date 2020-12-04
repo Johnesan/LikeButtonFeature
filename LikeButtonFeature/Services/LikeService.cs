@@ -11,16 +11,12 @@ namespace LikeButtonFeature.Services
     public class LikeService : ILikeService
     {
         private readonly ILikeRepository _repo;
-        private readonly IArticleService _articleService;
-        private readonly IUserService _userService;
 
         public event LikeAddedEventHandler LikeAdded;
 
-        public LikeService(ILikeRepository repo, IArticleService articleService, IUserService userService)
+        public LikeService(ILikeRepository repo)
         {
             _repo = repo;
-            _articleService = articleService;
-            _userService = userService;
         }
 
         public async Task AddLike(int ArticleId, int UserId)
