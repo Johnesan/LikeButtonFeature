@@ -15,7 +15,7 @@ namespace LikeButtonFeature.Models
         /// when there are like a million requests to get this value.
         /// Instead of aggreating count from Likes table, we simply 
         /// return this value. Although arguably a bad schema design choice,
-        /// it could be potentially be a good trade off in perculiar situations.
+        /// it could potentially be a good trade off in perculiar situations.
         /// </summary>
         public long LikeCount { get; set; } 
         [Timestamp]
